@@ -1,0 +1,85 @@
+<div class="row example-margin">
+    <div class="col-sm-3">
+        <h2>NNHL lineup app</h2>
+    </div>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        <button mat-icon-button (click)="openDialog()"><mat-icon>open_in_new</mat-icon></button>
+    </div>
+</div>
+<div class="row example-margin" >
+  <div class="col-sm-3">
+      <div class="panel panel-primary"
+          dnd-sortable-container [sortableData]="regulars.widgets" [dropZones]="['widget-dropZone']">
+          <div class="panel-heading">
+              {{regulars.name}}
+          </div>
+          <div class="panel-body">
+              <ul class="list-group">
+                  <li *ngFor="let widget of regulars.widgets; let x = index" class="list-group-item"
+                      dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                      [dragData]="widget">{{widget.name}}</li>
+              </ul>
+          </div>
+      </div>
+      <div class="panel panel-primary"
+          dnd-sortable-container [sortableData]="spares.widgets" [dropZones]="['widget-dropZone']">
+          <div class="panel-heading">
+              {{spares.name}}
+          </div>
+          <div class="panel-body">
+              <ul class="list-group">
+                  <li *ngFor="let widget of spares.widgets; let x = index" class="list-group-item"
+                      dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                      [dragData]="widget">{{widget.name}}</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="panel panel-info"
+        dnd-sortable-container [sortableData]="out.widgets" [dropZones]="['widget-dropZone']">
+        <div class="panel-heading">
+            {{out.name}}
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li *ngFor="let widget of out.widgets; let x = index" class="list-group-item"
+                    dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                    [dragData]="widget">{{widget.name}}</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="panel panel-info"
+        dnd-sortable-container [sortableData]="teamDark.widgets" [dropZones]="['widget-dropZone']">
+        <div class="panel-heading">
+            {{teamDark.name}}
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li *ngFor="let widget of teamDark.widgets; let x = index" class="list-group-item"
+                    dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                    [dragData]="widget">{{widget.name}}</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+      <div class="panel panel-info"
+          dnd-sortable-container [sortableData]="teamWhite.widgets" [dropZones]="['widget-dropZone']">
+          <div class="panel-heading">
+              {{teamWhite.name}}
+          </div>
+          <div class="panel-body">
+              <ul class="list-group">
+                  <li *ngFor="let widget of teamWhite.widgets; let x = index" class="list-group-item"
+                      dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                      [dragData]="widget">{{widget.name}}</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>
+
