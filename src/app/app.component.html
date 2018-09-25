@@ -10,13 +10,40 @@
 <div class="row example-margin" >
   <div class="col-sm-3">
       <div class="panel panel-primary"
-          dnd-sortable-container [sortableData]="regulars.widgets" [dropZones]="['widget-dropZone']">
+          dnd-sortable-container [sortableData]="regularGs.widgets" [dropZones]="['widget-dropZone']">
           <div class="panel-heading">
-              {{regulars.name}}
+              {{regularGs.name}}
           </div>
           <div class="panel-body">
               <ul class="list-group">
-                  <li *ngFor="let widget of regulars.widgets; let x = index" class="list-group-item"
+                  <li *ngFor="let widget of regularGs.widgets; let x = index" class="list-group-item"
+                      dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                      [dragData]="widget">{{widget.name}}</li>
+              </ul>
+          </div>
+      </div>
+      <div class="panel panel-primary"
+          dnd-sortable-container [sortableData]="regularDs.widgets" [dropZones]="['widget-dropZone']">
+          <div class="panel-heading">
+              {{regularDs.name}}
+          </div>
+          <div class="panel-body">
+              <ul class="list-group">
+                  <li *ngFor="let widget of regularDs.widgets; let x = index" class="list-group-item"
+                      dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                      [dragData]="widget">{{widget.name}}</li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="panel panel-primary"
+          dnd-sortable-container [sortableData]="regularFs.widgets" [dropZones]="['widget-dropZone']">
+          <div class="panel-heading">
+              {{regularFs.name}}
+          </div>
+          <div class="panel-body">
+              <ul class="list-group">
+                  <li *ngFor="let widget of regularFs.widgets; let x = index" class="list-group-item"
                       dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
                       [dragData]="widget">{{widget.name}}</li>
               </ul>
@@ -35,21 +62,6 @@
               </ul>
           </div>
       </div>
-  </div>
-  <div class="col-sm-3">
-    <div class="panel panel-info"
-        dnd-sortable-container [sortableData]="out.widgets" [dropZones]="['widget-dropZone']">
-        <div class="panel-heading">
-            {{out.name}}
-        </div>
-        <div class="panel-body">
-            <ul class="list-group">
-                <li *ngFor="let widget of out.widgets; let x = index" class="list-group-item"
-                    dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
-                    [dragData]="widget">{{widget.name}}</li>
-            </ul>
-        </div>
-    </div>
   </div>
   <div class="col-sm-3">
     <div class="panel panel-info"
@@ -80,6 +92,21 @@
               </ul>
           </div>
       </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="panel panel-info"
+        dnd-sortable-container [sortableData]="out.widgets" [dropZones]="['widget-dropZone']">
+        <div class="panel-heading">
+            {{out.name}}
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li *ngFor="let widget of out.widgets; let x = index" class="list-group-item"
+                    dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                    [dragData]="widget">{{widget.name}}</li>
+            </ul>
+        </div>
+    </div>
   </div>
 </div>
 
