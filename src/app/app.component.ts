@@ -100,6 +100,7 @@ export interface DialogData {
 })
 export class ExportDialogComponent implements OnInit {
   fullLineup = '';
+  toline = '';
 
   constructor(
     public dialogRef: MatDialogRef<ExportDialogComponent>,
@@ -109,19 +110,20 @@ export class ExportDialogComponent implements OnInit {
 
     let arrayLength = data.teamDark.length;
     for (let i = 0; i < arrayLength; i++) {
-      console.log(data.teamDark[i]);
       this.fullLineup += data.teamDark[i].name;
       this.fullLineup += '\n';
+      this.toline += data.teamDark[i].email + '; ';
     }
 
     this.fullLineup += '\nWhite (high room #)\n\n';
 
     arrayLength = data.teamWhite.length;
     for (let i = 0; i < arrayLength; i++) {
-      console.log(data.teamWhite[i]);
       this.fullLineup += data.teamWhite[i].name;
       this.fullLineup += '\n';
+      this.toline += data.teamWhite[i].email + '; ';
     }
+
   }
 
   closeDialog(): void {
