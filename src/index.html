@@ -40,7 +40,7 @@
     }
   
     function checkAuth() {
-      console.log('in checkAuth...');
+      console.log('Checking authorization...');
       gapi.auth.authorize({
         client_id: clientId,
         scope: scopes,
@@ -49,7 +49,7 @@
     }
   
     function handleAuthClick() {
-      console.log('in handleAuthClick...');
+      console.log('Authorizing...');
       gapi.auth.authorize({
         client_id: clientId,
         scope: scopes,
@@ -57,18 +57,31 @@
       }, handleAuthResult);
       return false;
     }
+
+    function handleLogoutClick() {
+      gapi.auth.signOut();
+      console.log('successfully signed out...');
+      $('#logout-button').addClass("hidden");
+      $('#compose-button').addClass("hidden");
+      $('#authorize-button').removeClass("hidden");
+      $('#authorize-button').on('click', function(){
+        handleAuthClick();
+      });
+    }
   
     function handleAuthResult(authResult) {
-      console.log('in handleAuthResult...');
       if(authResult && !authResult.error) {
+        console.log('successfully signed in!');
         loadGmailApi();
-        $('#authorize-button').remove();
-        $('.table-inbox').removeClass("hidden");
-        console.log('   remove hidden on compose-button...');
+        $('#authorize-button').addClass("hidden");
         $('#compose-button').removeClass("hidden");
+        $('#logout-button').removeClass("hidden");
+        $('#logout-button').on('click', function(){
+          handleLogoutClick();
+        });
       } else {
+        console.log('need to sign in...');
         $('#authorize-button').removeClass("hidden");
-        console.log('   remove hidden on authorize-button...');
         $('#authorize-button').on('click', function(){
           handleAuthClick();
         });
