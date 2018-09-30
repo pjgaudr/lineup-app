@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Email the lineup</h2>
-<form onsubmit="return sendEmail();">
+<form>
   <div class="form-group">
     <h4>To:</h4>
     <textarea class="form-control" [(ngModel)]="toline" name="composeTo" cols="40" rows="5" id="compose-to" required></textarea>
@@ -12,6 +12,6 @@
     <h4>Body:</h4>
     <textarea class="form-control" [(ngModel)]="fullLineup" name="lineup" cols="40" rows="25" id="compose-message" required></textarea>
   </div>
-  <input type="submit" id="send-button" class="btn btn-primary" value="Send Email"/>
+  <input type="button" id="send-button" class="btn btn-primary" value="Send Email" (click)="sendEmailAndClose()"/>
   <button type="button" name="closeButton" id="close-button" class="btn btn-primary pull-right" (click)="closeDialog()">Close</button>
 </form>

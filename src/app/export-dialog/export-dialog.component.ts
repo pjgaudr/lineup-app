@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Widget } from '../app.component';
 
+declare function sendEmail():any;
+
 export interface DialogData {
     teamDark: Array<Widget>;
     teamWhite: Array<Widget>;
@@ -50,6 +52,11 @@ export interface DialogData {
     }
   
     closeDialog(): void {
+      this.dialogRef.close();
+    }
+
+    sendEmailAndClose(): void {
+      sendEmail();
       this.dialogRef.close();
     }
   
