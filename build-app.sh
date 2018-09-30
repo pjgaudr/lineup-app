@@ -1,1 +1,1 @@
-ng build --base-href ./ --prod
+ng build --prod
