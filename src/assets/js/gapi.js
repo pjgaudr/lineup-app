@@ -5,12 +5,6 @@ function handleClientLoad() {
   console.log('in handleClientLoad...');
   gapi.client.setApiKey(apiKey);
   window.setTimeout(checkAuth, 1);
-  $('#authorize-button').on('click', function(){
-    handleAuthClick();
-  });
-  $('#logout-button').on('click', function(){
-    handleLogoutClick();
-  });
 }
 
 function checkAuth() {
@@ -36,25 +30,43 @@ function handleLogoutClick() {
   gapi.auth.signOut();
   console.log('successfully signed out...');
   $('#logout-button').addClass("hidden");
+  $('#logout-button').prop("onclick", null).off("click");
+
   $('#compose-button').addClass("hidden");
+
   $('#authorize-button').removeClass("hidden");
+  $('#authorize-button').on('click', function(){
+    handleAuthClick();
+  });
 }
 
 function handleAuthResult(authResult) {
   if(authResult && !authResult.error) {
     console.log('successfully signed in!');
     loadGmailApi();
-    $('#authorize-button').addClass("hidden");
-    $('#compose-button').removeClass("hidden");
-    $('#logout-button').removeClass("hidden");
   } else {
     console.log('need to sign in...');
     $('#authorize-button').removeClass("hidden");
+    $('#authorize-button').on('click', function(){
+      handleAuthClick();
+    });
   }
 }
 
 function loadGmailApi() {
-  gapi.client.load('gmail', 'v1', displayInbox);
+  gapi.client.load('gmail', 'v1', displayHideButtons);
+}
+
+function displayHideButtons() {
+  $('#authorize-button').addClass("hidden");
+  $('#authorize-button').prop("onclick", null).off("click");
+
+  $('#logout-button').removeClass("hidden");
+  $('#logout-button').on('click', function(){
+    handleLogoutClick();
+  });
+
+  $('#compose-button').removeClass("hidden");
 }
 
 function displayInbox() {
