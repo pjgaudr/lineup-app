@@ -2,9 +2,11 @@
     <div class="col-sm-3">
         <h2>NNHL lineup app</h2>
     </div>
-    <div class="col-sm-3"></div>
+
     <div class="col-sm-3">
-        <button mat-icon-button (click)="openDialog()"><mat-icon>open_in_new</mat-icon></button>
+        <button id="authorize-button" class="btn btn-primary btn-lg hidden">Login</button>      
+
+        <button id="compose-button" type="button" class="btn btn-info btn-lg hidden" (click)="openDialog()">Send Email ...</button>
     </div>
 </div>
 <div class="row example-margin" >
@@ -109,4 +111,3 @@
     </div>
   </div>
 </div>
-

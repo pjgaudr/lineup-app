@@ -15,6 +15,7 @@ export interface DialogData {
   export class ExportDialogComponent implements OnInit {
     fullLineup = '';
     toline = '';
+    subject = 'NNHL Lineups'
   
     constructor(
       public dialogRef: MatDialogRef<ExportDialogComponent>,
@@ -24,10 +25,12 @@ export interface DialogData {
   
       let arrayLength = data.teamDark.length;
       if(arrayLength > 0)
+      {
         this.fullLineup += data.teamDark[0].name + " (G)\n";
+        this.toline += data.teamDark[0].email + '; ';
+      }
       for (let i = 1; i < arrayLength; i++) {
-        this.fullLineup += data.teamDark[i].name;
-        this.fullLineup += '\n';
+        this.fullLineup += data.teamDark[i].name + '\n';
         this.toline += data.teamDark[i].email + '; ';
       }
   
@@ -35,10 +38,12 @@ export interface DialogData {
   
       arrayLength = data.teamWhite.length;
       if(arrayLength > 0)
+      {
         this.fullLineup += data.teamWhite[0].name + " (G)\n";
+        this.toline += data.teamWhite[0].email + '; ';
+      }
       for (let i = 1; i < arrayLength; i++) {
-        this.fullLineup += data.teamWhite[i].name;
-        this.fullLineup += '\n';
+        this.fullLineup += data.teamWhite[i].name + '\n';
         this.toline += data.teamWhite[i].email + '; ';
       }
   
