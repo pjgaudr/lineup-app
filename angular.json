@@ -26,7 +26,8 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/js/gapi.js"
+              "src/assets/js/gapi.js",
+              "src/assets/js/key.js"
             ]
           },
           "configurations": {
