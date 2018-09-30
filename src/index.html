@@ -37,6 +37,12 @@
       console.log('in handleClientLoad...');
       gapi.client.setApiKey(apiKey);
       window.setTimeout(checkAuth, 1);
+      $('#authorize-button').on('click', function(){
+        handleAuthClick();
+      });
+      $('#logout-button').on('click', function(){
+        handleLogoutClick();
+      });
     }
   
     function checkAuth() {
@@ -64,9 +70,6 @@
       $('#logout-button').addClass("hidden");
       $('#compose-button').addClass("hidden");
       $('#authorize-button').removeClass("hidden");
-      $('#authorize-button').on('click', function(){
-        handleAuthClick();
-      });
     }
   
     function handleAuthResult(authResult) {
@@ -76,15 +79,9 @@
         $('#authorize-button').addClass("hidden");
         $('#compose-button').removeClass("hidden");
         $('#logout-button').removeClass("hidden");
-        $('#logout-button').on('click', function(){
-          handleLogoutClick();
-        });
       } else {
         console.log('need to sign in...');
         $('#authorize-button').removeClass("hidden");
-        $('#authorize-button').on('click', function(){
-          handleAuthClick();
-        });
       }
     }
   
