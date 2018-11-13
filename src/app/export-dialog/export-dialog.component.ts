@@ -5,8 +5,12 @@ import { Widget } from '../app.component';
 declare function sendEmail():any;
 
 export interface DialogData {
-    teamDark: Array<Widget>;
-    teamWhite: Array<Widget>;
+    teamDarkG: Array<Widget>;
+    teamDarkD: Array<Widget>;
+    teamDarkF: Array<Widget>;
+    teamWhiteG: Array<Widget>;
+    teamWhiteD: Array<Widget>;
+    teamWhiteF: Array<Widget>;
   }
   
   @Component({
@@ -25,30 +29,41 @@ export interface DialogData {
   
       this.fullLineup += 'Dark (low room #)\n\n';
   
-      let arrayLength = data.teamDark.length;
+      let arrayLength = data.teamDarkG.length;
       if(arrayLength > 0)
       {
-        this.fullLineup += data.teamDark[0].name + " (G)\n";
-        this.toline += data.teamDark[0].email + '; ';
+        this.fullLineup += "G: " + data.teamDarkG[0].name + "\n";
+        this.toline += data.teamDarkG[0].email + '; ';
       }
-      for (let i = 1; i < arrayLength; i++) {
-        this.fullLineup += data.teamDark[i].name + '\n';
-        this.toline += data.teamDark[i].email + '; ';
+      arrayLength = data.teamDarkD.length;
+      for (let i = 0; i < arrayLength; i++) {
+        this.fullLineup += "D: " + data.teamDarkD[i].name + '\n';
+        this.toline += data.teamDarkD[i].email + '; ';
+      }
+      arrayLength = data.teamDarkF.length;
+      for (let i = 0; i < arrayLength; i++) {
+        this.fullLineup += "F: " + data.teamDarkF[i].name + '\n';
+        this.toline += data.teamDarkF[i].email + '; ';
       }
   
       this.fullLineup += '\nWhite (high room #)\n\n';
   
-      arrayLength = data.teamWhite.length;
+      arrayLength = data.teamWhiteG.length;
       if(arrayLength > 0)
       {
-        this.fullLineup += data.teamWhite[0].name + " (G)\n";
-        this.toline += data.teamWhite[0].email + '; ';
+        this.fullLineup += "G: " + data.teamWhiteG[0].name + "\n";
+        this.toline += data.teamWhiteG[0].email + '; ';
       }
-      for (let i = 1; i < arrayLength; i++) {
-        this.fullLineup += data.teamWhite[i].name + '\n';
-        this.toline += data.teamWhite[i].email + '; ';
+      arrayLength = data.teamWhiteD.length;
+      for (let i = 0; i < arrayLength; i++) {
+        this.fullLineup += "D: " + data.teamWhiteD[i].name + '\n';
+        this.toline += data.teamWhiteD[i].email + '; ';
       }
-  
+      arrayLength = data.teamWhiteF.length;
+      for (let i = 0; i < arrayLength; i++) {
+        this.fullLineup += "F: " + data.teamWhiteF[i].name + '\n';
+        this.toline += data.teamWhiteF[i].email + '; ';
+      }
     }
   
     closeDialog(): void {

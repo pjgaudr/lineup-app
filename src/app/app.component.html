@@ -4,10 +4,12 @@
     </div>
 
     <div class="col-sm-3">
-        <button id="compose-button" type="button" class="btn btn-info btn-lg hidden" (click)="openDialog()">Send Email ...</button>
+        <h2>List of players</h2> 
     </div>
 
-    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        <button id="compose-button" type="button" class="btn btn-primary btn-lg hidden" (click)="openDialog()">Send Email ...</button>
+    </div>
 
     <div class="col-sm-3">
         <button id="authorize-button" class="btn btn-primary btn-lg hidden pull-right">Login</button>      
@@ -15,7 +17,22 @@
     </div>    
 </div>
 <div class="row example-margin" >
-  <div class="col-sm-3">
+    <div class="col-sm-3">
+        <div class="panel panel-danger"
+            dnd-sortable-container [sortableData]="out.widgets" [dropZones]="['widget-dropZone']">
+            <div class="panel-heading">
+                {{out.name}}
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li *ngFor="let widget of out.widgets; let x = index" class="list-group-item"
+                        dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                        [dragData]="widget">{{widget.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
       <div class="panel panel-primary"
           dnd-sortable-container [sortableData]="regularGs.widgets" [dropZones]="['widget-dropZone']">
           <div class="panel-heading">
@@ -72,13 +89,39 @@
   </div>
   <div class="col-sm-3">
     <div class="panel panel-info"
-        dnd-sortable-container [sortableData]="teamDark.widgets" [dropZones]="['widget-dropZone']">
+        dnd-sortable-container [sortableData]="teamDarkG.widgets" [dropZones]="['widget-dropZone']">
         <div class="panel-heading">
-            {{teamDark.name}}
+            {{teamDarkG.name}}
         </div>
         <div class="panel-body">
             <ul class="list-group">
-                <li *ngFor="let widget of teamDark.widgets; let x = index" class="list-group-item"
+                <li *ngFor="let widget of teamDarkG.widgets; let x = index" class="list-group-item"
+                    dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                    [dragData]="widget">{{widget.name}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-info"
+        dnd-sortable-container [sortableData]="teamDarkD.widgets" [dropZones]="['widget-dropZone']">
+        <div class="panel-heading">
+            {{teamDarkD.name}}
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li *ngFor="let widget of teamDarkD.widgets; let x = index" class="list-group-item"
+                    dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                    [dragData]="widget">{{widget.name}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-info"
+        dnd-sortable-container [sortableData]="teamDarkF.widgets" [dropZones]="['widget-dropZone']">
+        <div class="panel-heading">
+            {{teamDarkF.name}}
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li *ngFor="let widget of teamDarkF.widgets; let x = index" class="list-group-item"
                     dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
                     [dragData]="widget">{{widget.name}}</li>
             </ul>
@@ -87,32 +130,43 @@
   </div>
   <div class="col-sm-3">
       <div class="panel panel-info"
-          dnd-sortable-container [sortableData]="teamWhite.widgets" [dropZones]="['widget-dropZone']">
+          dnd-sortable-container [sortableData]="teamWhiteG.widgets" [dropZones]="['widget-dropZone']">
           <div class="panel-heading">
-              {{teamWhite.name}}
+              {{teamWhiteG.name}}
           </div>
           <div class="panel-body">
               <ul class="list-group">
-                  <li *ngFor="let widget of teamWhite.widgets; let x = index" class="list-group-item"
+                  <li *ngFor="let widget of teamWhiteG.widgets; let x = index" class="list-group-item"
                       dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
                       [dragData]="widget">{{widget.name}}</li>
               </ul>
           </div>
       </div>
-  </div>
-  <div class="col-sm-3">
-    <div class="panel panel-info"
-        dnd-sortable-container [sortableData]="out.widgets" [dropZones]="['widget-dropZone']">
-        <div class="panel-heading">
-            {{out.name}}
-        </div>
-        <div class="panel-body">
-            <ul class="list-group">
-                <li *ngFor="let widget of out.widgets; let x = index" class="list-group-item"
-                    dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
-                    [dragData]="widget">{{widget.name}}</li>
-            </ul>
-        </div>
-    </div>
+      <div class="panel panel-info"
+          dnd-sortable-container [sortableData]="teamWhiteD.widgets" [dropZones]="['widget-dropZone']">
+          <div class="panel-heading">
+              {{teamWhiteD.name}}
+          </div>
+          <div class="panel-body">
+              <ul class="list-group">
+                  <li *ngFor="let widget of teamWhiteD.widgets; let x = index" class="list-group-item"
+                      dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                      [dragData]="widget">{{widget.name}}</li>
+              </ul>
+          </div>
+      </div>
+      <div class="panel panel-info"
+          dnd-sortable-container [sortableData]="teamWhiteF.widgets" [dropZones]="['widget-dropZone']">
+          <div class="panel-heading">
+              {{teamWhiteF.name}}
+          </div>
+          <div class="panel-body">
+              <ul class="list-group">
+                  <li *ngFor="let widget of teamWhiteF.widgets; let x = index" class="list-group-item"
+                      dnd-sortable [sortableIndex]="x" [dragEnabled]="!dragOperation"
+                      [dragData]="widget">{{widget.name}}</li>
+              </ul>
+          </div>
+      </div>
   </div>
 </div>

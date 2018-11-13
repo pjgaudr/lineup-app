@@ -17,8 +17,12 @@ export class AppComponent implements OnInit {
   regularForwards: Array<Widget> = [];
   regularGoalies: Array<Widget> = [];
   sparePlayers: Array<Widget> = [];
-  teamDark: Container;
-  teamWhite: Container;
+  teamDarkG: Container;
+  teamDarkD: Container;
+  teamDarkF: Container;
+  teamWhiteG: Container;
+  teamWhiteD: Container;
+  teamWhiteF: Container;
   regularGs: Container;
   regularDs: Container;
   regularFs: Container;
@@ -61,14 +65,20 @@ export class AppComponent implements OnInit {
     this.sparePlayers.push(new Widget('Jordy Keighan', 'jordy.keighan@gmail.com'));
     this.sparePlayers.push(new Widget('Luc Orsali', 'stapounch@gmail.com'));
     this.sparePlayers.push(new Widget('Matthew Bowen', 'bowen.matthew@gmail.com'));
+    this.sparePlayers.push(new Widget('Sean Drennan', 'sdrennan@hotmail.com'));
+    this.sparePlayers.push(new Widget('Erik Plumadore', 'ebplumadore@gmail.com'));
 
-    this.teamDark = new Container(1, 'Team Dark', []);
-    this.teamWhite = new Container(2, 'Team White', []);
-    this.regularDs = new Container(3, 'Regular Defenseman', this.regularDefensman);
-    this.regularFs = new Container(4, 'Regular Forwards', this.regularForwards);
-    this.regularGs = new Container(5, 'Regular Goalies', this.regularGoalies);
-    this.spares = new Container(6, 'Spare Players', this.sparePlayers);
-    this.out = new Container(7, 'Out', []);
+    this.teamDarkG = new Container(1, 'Dark Goalie', []);
+    this.teamDarkD = new Container(2, 'Dark Defensman', []);
+    this.teamDarkF = new Container(3, 'Dark Forwards', []);
+    this.teamWhiteG = new Container(4, 'White Goalie', []);
+    this.teamWhiteD = new Container(5, 'White Defensman', []);
+    this.teamWhiteF = new Container(6, 'White Forwards', []);
+    this.regularDs = new Container(7, 'Regular Defenseman', this.regularDefensman);
+    this.regularFs = new Container(8, 'Regular Forwards', this.regularForwards);
+    this.regularGs = new Container(9, 'Regular Goalies', this.regularGoalies);
+    this.spares = new Container(10, 'Spare Players', this.sparePlayers);
+    this.out = new Container(11, 'Out', []);
   }
 
   ngOnInit() {
@@ -82,7 +92,9 @@ export class AppComponent implements OnInit {
       // },
       height: '400px',
       width: '250px',
-      data: {teamDark: this.teamDark.widgets, teamWhite: this.teamWhite.widgets}
+      data: {teamDarkG: this.teamDarkG.widgets, teamWhiteG: this.teamWhiteG.widgets,
+        teamDarkD: this.teamDarkD.widgets, teamWhiteD: this.teamWhiteD.widgets,
+        teamDarkF: this.teamDarkF.widgets, teamWhiteF: this.teamWhiteF.widgets}
     });
   }
 }
