@@ -61,12 +61,16 @@ export class AppComponent implements OnInit {
     this.regularDefensman.push(new Widget('Yanick Gagnon', 'yanick.gagnon@hotmail.com'));
 
     this.sparePlayers.push(new Widget('Benoit Roy', 'benoitroy.x1@gmail.com'));
+    this.sparePlayers.push(new Widget('Brendan Arciszewski', 'brendan.arciszewski@edu.uwaterloo.ca'));
     this.sparePlayers.push(new Widget('Bruno Lanthier', 'brunolanthier@gmail.com'));
+    this.sparePlayers.push(new Widget('Dylan Waugh', 'dylwaugh@gmail.com'));
+    this.sparePlayers.push(new Widget('Erik Plumadore', 'ebplumadore@gmail.com'));
     this.sparePlayers.push(new Widget('Jordy Keighan', 'jordy.keighan@gmail.com'));
     this.sparePlayers.push(new Widget('Luc Orsali', 'stapounch@gmail.com'));
     this.sparePlayers.push(new Widget('Matthew Bowen', 'bowen.matthew@gmail.com'));
+    this.sparePlayers.push(new Widget('Nicholas Parnell', 'nicholas.parnell@gmail.com'));
+    this.sparePlayers.push(new Widget('Paul Adams-Robenhymer', 'p.robenhymer@gmail.com'));
     this.sparePlayers.push(new Widget('Sean Drennan', 'sdrennan@hotmail.com'));
-    this.sparePlayers.push(new Widget('Erik Plumadore', 'ebplumadore@gmail.com'));
 
     this.teamDarkG = new Container(1, 'Dark Goalie', []);
     this.teamDarkD = new Container(2, 'Dark Defensman', []);
