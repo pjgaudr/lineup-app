@@ -2,12 +2,10 @@ var scopes = 'https://www.googleapis.com/auth/gmail.readonly '+
              'https://www.googleapis.com/auth/gmail.send';
 
 function loadGmailApi() {
-  console.log('loading auth2');
   gapi.load('client:auth2', initClient);
 }
 
 function initClient () {
-  console.log('loading gmail v1');
   gapi.client.load('gmail', 'v1', displayHideButtons);
 }
 
