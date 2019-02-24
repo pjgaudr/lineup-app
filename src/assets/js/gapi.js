@@ -1,71 +1,17 @@
 var scopes = 'https://www.googleapis.com/auth/gmail.readonly '+
              'https://www.googleapis.com/auth/gmail.send';
 
-function handleClientLoad() {
-  console.log('in handleClientLoad...');
-  gapi.client.setApiKey(apiKey);
-  window.setTimeout(checkAuth, 1);
-}
-
-function checkAuth() {
-  console.log('Checking authorization...');
-  gapi.auth.authorize({
-    client_id: clientId,
-    scope: scopes,
-    immediate: true
-  }, handleAuthResult);
-}
-
-function handleAuthClick() {
-  console.log('Authorizing...');
-  gapi.auth.authorize({
-    client_id: clientId,
-    scope: scopes,
-    immediate: false
-  }, handleAuthResult);
-  return false;
-}
-
-function handleLogoutClick() {
-  gapi.auth.signOut();
-  console.log('successfully signed out...');
-  $('#logout-button').addClass("hidden");
-  $('#logout-button').prop("onclick", null).off("click");
-
-  $('#compose-button').addClass("hidden");
-
-  $('#authorize-button').removeClass("hidden");
-  $('#authorize-button').on('click', function(){
-    handleAuthClick();
-  });
-}
-
-function handleAuthResult(authResult) {
-  if(authResult && !authResult.error) {
-    console.log('successfully signed in!');
-    loadGmailApi();
-  } else {
-    console.log('need to sign in...');
-    $('#authorize-button').removeClass("hidden");
-    $('#authorize-button').on('click', function(){
-      handleAuthClick();
-    });
-  }
-}
-
 function loadGmailApi() {
+  console.log('loading auth2');
+  gapi.load('client:auth2', initClient);
+}
+
+function initClient () {
+  console.log('loading gmail v1');
   gapi.client.load('gmail', 'v1', displayHideButtons);
 }
 
 function displayHideButtons() {
-  $('#authorize-button').addClass("hidden");
-  $('#authorize-button').prop("onclick", null).off("click");
-
-  $('#logout-button').removeClass("hidden");
-  $('#logout-button').on('click', function(){
-    handleLogoutClick();
-  });
-
   $('#compose-button').removeClass("hidden");
 }
 
@@ -212,8 +158,6 @@ function sendMessage(headers_obj, message, callback)
 
 function composeTidy()
 {
-  // $('#compose-modal').modal('hide');
-
   $('#compose-to').val('');
   $('#compose-subject').val('');
   $('#compose-message').val('');

@@ -24,8 +24,9 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# key file
+# key and clientid file
 /src/assets/js/key.js
+/src/index.html
 
 # misc
 /.sass-cache

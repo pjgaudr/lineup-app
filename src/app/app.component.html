@@ -1,6 +1,6 @@
 <div class="row example-margin">
     <div class="col-sm-3">
-        <h2>NNHL lineup app</h2>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     </div>
 
     <div class="col-sm-3">
@@ -8,13 +8,11 @@
     </div>
 
     <div class="col-sm-3">
-        <button id="compose-button" type="button" class="btn btn-primary btn-lg hidden" (click)="openDialog()">Send Email ...</button>
     </div>
 
     <div class="col-sm-3">
-        <button id="authorize-button" class="btn btn-primary btn-lg hidden pull-right">Login</button>      
-        <button id="logout-button" class="btn btn-primary btn-lg hidden pull-right">Logout</button>      
-    </div>    
+        <button id="compose-button" type="button" class="btn btn-primary btn-lg hidden pull-right" (click)="openDialog()">Send Email ...</button>
+    </div>
 </div>
 <div class="row example-margin" >
     <div class="col-sm-3">

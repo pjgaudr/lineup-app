@@ -90,10 +90,6 @@ export class AppComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ExportDialogComponent, {
-      // position: {
-      //   'top': '0',
-      //   left: '0'
-      // },
       height: '400px',
       width: '250px',
       data: {teamDarkG: this.teamDarkG.widgets, teamWhiteG: this.teamWhiteG.widgets,
