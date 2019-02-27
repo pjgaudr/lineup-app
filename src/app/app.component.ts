@@ -71,6 +71,7 @@ export class AppComponent implements OnInit {
     this.sparePlayers.push(new Widget('Nicholas Parnell', 'nicholas.parnell@gmail.com'));
     this.sparePlayers.push(new Widget('Paul Adams-Robenhymer', 'p.robenhymer@gmail.com'));
     this.sparePlayers.push(new Widget('Sean Drennan', 'sdrennan@hotmail.com'));
+    this.sparePlayers.push(new Widget('Stephen Breault', 'stephen_breault@hotmail.com'));
 
     this.teamDarkG = new Container(1, 'Dark Goalie', []);
     this.teamDarkD = new Container(2, 'Dark Defensman', []);
