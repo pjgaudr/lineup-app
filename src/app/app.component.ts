@@ -63,15 +63,19 @@ export class AppComponent implements OnInit {
     this.sparePlayers.push(new Widget('Benoit Roy', 'benoitroy.x1@gmail.com'));
     this.sparePlayers.push(new Widget('Brendan Arciszewski', 'brendan.arciszewski@edu.uwaterloo.ca'));
     this.sparePlayers.push(new Widget('Bruno Lanthier', 'brunolanthier@gmail.com'));
+    this.sparePlayers.push(new Widget('David Gervais', 'dgervais18@hotmail.com'));
     this.sparePlayers.push(new Widget('Dylan Waugh', 'dylwaugh@gmail.com'));
     this.sparePlayers.push(new Widget('Erik Plumadore', 'ebplumadore@gmail.com'));
     this.sparePlayers.push(new Widget('Jordy Keighan', 'jordy.keighan@gmail.com'));
     this.sparePlayers.push(new Widget('Luc Orsali', 'stapounch@gmail.com'));
+    this.sparePlayers.push(new Widget('Marc St-Cyr', 'marc.stcyr1@gmail.com'));
+    this.sparePlayers.push(new Widget('Mark Wilson', 'mjd.wilson@gmail.com'));
     this.sparePlayers.push(new Widget('Matthew Bowen', 'bowen.matthew@gmail.com'));
     this.sparePlayers.push(new Widget('Nicholas Parnell', 'nicholas.parnell@gmail.com'));
     this.sparePlayers.push(new Widget('Paul Adams-Robenhymer', 'p.robenhymer@gmail.com'));
     this.sparePlayers.push(new Widget('Sean Drennan', 'sdrennan@hotmail.com'));
     this.sparePlayers.push(new Widget('Stephen Breault', 'stephen_breault@hotmail.com'));
+    this.sparePlayers.push(new Widget('Vincent Hardy', 'hardy.vincent@gmail.com'));
 
     this.teamDarkG = new Container(1, 'Dark Goalie', []);
     this.teamDarkD = new Container(2, 'Dark Defensman', []);
