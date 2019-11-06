@@ -12,7 +12,7 @@ export interface DialogData {
     teamWhiteD: Array<Widget>;
     teamWhiteF: Array<Widget>;
   }
-  
+
   @Component({
     selector: 'app-export-dialog',
     templateUrl: './export-dialog.component.html',
@@ -22,13 +22,14 @@ export interface DialogData {
     fullLineup = '';
     toline = '';
     subject = 'NNHL Lineups'
-  
+
     constructor(
       public dialogRef: MatDialogRef<ExportDialogComponent>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-  
+
+      this.fullLineup += 'Game starts at 11am\n\n';
       this.fullLineup += 'Dark (low room #)\n\n';
-  
+
       let arrayLength = data.teamDarkG.length;
       if(arrayLength > 0)
       {
@@ -45,9 +46,9 @@ export interface DialogData {
         this.fullLineup += "F: " + data.teamDarkF[i].name + '\n';
         this.toline += data.teamDarkF[i].email + '; ';
       }
-  
+
       this.fullLineup += '\nWhite (high room #)\n\n';
-  
+
       arrayLength = data.teamWhiteG.length;
       if(arrayLength > 0)
       {
@@ -65,7 +66,7 @@ export interface DialogData {
         this.toline += data.teamWhiteF[i].email + '; ';
       }
     }
-  
+
     closeDialog(): void {
       this.dialogRef.close();
     }
@@ -74,10 +75,10 @@ export interface DialogData {
       sendEmail();
       this.dialogRef.close();
     }
-  
+
     ngOnInit() {
     }
-  
+
   }
-  
+
 
